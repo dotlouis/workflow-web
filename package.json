@@ -1,0 +1,12 @@
+{
+  "name": "workflow-web",
+  "private": true,
+  "description": "Deployable wrapper for the @workflow/web dashboard (Vercel Workflow DevKit) reading a @workflow/world-postgres World. Keep @workflow versions in sync with the app that writes the World.",
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "@workflow/web": "4.1.12",
+    "@workflow/world-postgres": "4.2.0"
+  }
+}
