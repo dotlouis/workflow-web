@@ -14,7 +14,13 @@ queue — your app's in-process worker keeps executing runs.
 
 ## Deploy on Railway
 
-Point a service at this repo (Dockerfile build) and set:
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/jnc84O)
+
+The template deploys the dashboard together with a Postgres database, already
+linked via `WORKFLOW_POSTGRES_URL=${{Postgres.DATABASE_URL}}` — repoint that
+variable at your app's existing World DB if you already have one.
+
+To wire it up manually instead, point a service at this repo (Dockerfile build) and set:
 
 | Var | Value |
 | --- | --- |
