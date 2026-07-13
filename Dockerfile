@@ -16,4 +16,9 @@ RUN npm install --omit=dev
 # 0.0.0.0 bind would be unreachable at <service>.railway.internal.
 ENV HOSTNAME=::
 
+# Defaults so the only env var a deployment must provide is
+# WORKFLOW_POSTGRES_URL; both can still be overridden per deployment.
+ENV PORT=3456
+ENV WORKFLOW_TARGET_WORLD=@workflow/world-postgres
+
 CMD ["node", "node_modules/@workflow/web/server.js"]

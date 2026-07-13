@@ -14,7 +14,7 @@ queue — your app's in-process worker keeps executing runs.
 
 ## Deploy on Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/jnc84O)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/uCH7fO)
 
 The template deploys the dashboard together with a Postgres database, already
 linked via `WORKFLOW_POSTGRES_URL=${{Postgres.DATABASE_URL}}` — repoint that
@@ -24,9 +24,9 @@ To wire it up manually instead, point a service at this repo (Dockerfile build) 
 
 | Var | Value |
 | --- | --- |
-| `WORKFLOW_TARGET_WORLD` | `@workflow/world-postgres` |
 | `WORKFLOW_POSTGRES_URL` | DSN of the Postgres World DB, e.g. `${{Postgres.DATABASE_URL}}` |
-| `PORT` | `3456` (any port works) |
+| `WORKFLOW_TARGET_WORLD` | optional — defaults to `@workflow/world-postgres` in the image |
+| `PORT` | optional — defaults to `3456` in the image |
 
 The container binds `::` (`HOSTNAME=::`), so it is reachable over Railway's
 IPv6-only private network at `<service>.railway.internal:<PORT>` without a
