@@ -18,7 +18,10 @@ ENV HOSTNAME=::
 
 # Defaults so the only env var a deployment must provide is
 # WORKFLOW_POSTGRES_URL; both can still be overridden per deployment.
+# EXPOSE pins the port Railway injects as PORT (which overrides the ENV
+# default at runtime); elsewhere the ENV default applies.
 ENV PORT=3456
 ENV WORKFLOW_TARGET_WORLD=@workflow/world-postgres
+EXPOSE 3456
 
 CMD ["node", "node_modules/@workflow/web/server.js"]
