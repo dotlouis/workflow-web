@@ -14,7 +14,7 @@ queue — your app's in-process worker keeps executing runs.
 
 ## Deploy on Railway
 
-[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/TwkNNl)
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/workflow-web)
 
 The template deploys the dashboard together with a Postgres database, already
 linked via `WORKFLOW_POSTGRES_URL=${{Postgres.DATABASE_URL}}` — repoint that
