@@ -6,7 +6,7 @@ reading workflow runs from a Postgres World
 ([`@workflow/world-postgres`](https://www.npmjs.com/package/@workflow/world-postgres)).
 
 The upstream `vercel/workflow` repo is a source monorepo and not directly deployable;
-the npm package ships a prebuilt Next.js standalone server, so this repo is just a
+the npm package ships a prebuilt server, so this repo is just a
 Dockerfile + a 2-dependency `package.json` around `node node_modules/@workflow/web/server.js`.
 
 It is a **reader**: it does not start a worker, so it will not drain the workflow
@@ -28,7 +28,7 @@ To wire it up manually instead, point a service at this repo (Dockerfile build) 
 | `WORKFLOW_TARGET_WORLD` | optional — defaults to `@workflow/world-postgres` in the image |
 | `PORT` | optional — defaults to `3456` in the image |
 
-The container binds `::` (`HOSTNAME=::`), so it is reachable over Railway's
+The container binds `::` (`HOST=::`), so it is reachable over Railway's
 IPv6-only private network at `<service>.railway.internal:<PORT>` without a
 public domain. Only add a public Railway domain if you want the dashboard on
 the open internet (it has **no authentication** — prefer private networking, a
