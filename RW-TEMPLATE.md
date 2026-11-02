@@ -4,7 +4,7 @@ workflow-web is the observability dashboard of the [Vercel Workflow DevKit](http
 
 ## About Hosting workflow-web
 
-The npm package ships a prebuilt Next.js standalone server, so hosting is a thin Dockerfile around `node node_modules/@workflow/web/server.js` (Node 24 — the dashboard uses `node:sqlite`). This template deploys the dashboard together with a Postgres database, pre-linked via `WORKFLOW_POSTGRES_URL=${{Postgres.DATABASE_URL}}`; if your workflow app already has a World database, repoint that one variable at it after deploying. The dashboard is a pure reader — it never starts a workflow worker, so it won't drain your queue. It listens on port `3456` and has **no built-in authentication**: keep it on Railway's private network (or behind a VPN/auth proxy) rather than adding a public domain.
+The npm package ships a prebuilt server, so hosting is a thin Dockerfile around `node node_modules/@workflow/web/server.js` (Node 24 — the dashboard uses `node:sqlite`). This template deploys the dashboard together with a Postgres database, pre-linked via `WORKFLOW_POSTGRES_URL=${{Postgres.DATABASE_URL}}`; if your workflow app already has a World database, repoint that one variable at it after deploying. The dashboard is a pure reader — it never starts a workflow worker, so it won't drain your queue. It listens on port `3456` and has **no built-in authentication**: keep it on Railway's private network (or behind a VPN/auth proxy) rather than adding a public domain.
 
 ## Common Use Cases
 
@@ -30,8 +30,8 @@ Keep the dashboard's package versions in sync with the app that writes the World
 
 ```json
 "dependencies": {
-  "@workflow/web": "4.1.12",
-  "@workflow/world-postgres": "4.2.0"
+  "@workflow/web": "5.0.2",
+  "@workflow/world-postgres": "5.0.2"
 }
 ```
 

@@ -6,7 +6,7 @@
     "node": ">=24"
   },
   "dependencies": {
-    "@workflow/web": "4.1.12",
-    "@workflow/world-postgres": "4.2.0"
+    "@workflow/web": "5.0.2",
+    "@workflow/world-postgres": "5.0.2"
   }
 }

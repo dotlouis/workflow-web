@@ -8,13 +8,15 @@ FROM node:24-bookworm-slim
 WORKDIR /app
 
 # Install only the published dashboard + Postgres World packages — the npm
-# package ships a prebuilt Next standalone server, so there is no build step.
+# package ships a prebuilt server (React Router on srvx), so there is no build
+# step.
 COPY package.json ./
 RUN npm install --omit=dev
 
-# Bind IPv6 as well: Railway private networking is IPv6-only, so the default
-# 0.0.0.0 bind would be unreachable at <service>.railway.internal.
-ENV HOSTNAME=::
+# Bind IPv6 as well: Railway private networking is IPv6-only, so an IPv4-only
+# bind would be unreachable at <service>.railway.internal. The 5.x server
+# (srvx) reads HOST; HOSTNAME was the 4.x (Next) name and is ignored now.
+ENV HOST=::
 
 # Defaults so the only env var a deployment must provide is
 # WORKFLOW_POSTGRES_URL; both can still be overridden per deployment.
